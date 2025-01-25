@@ -2,4 +2,14 @@
 
 body {
   font-family: 'Raleway', sans-serif;
+
 }
+
+.scrollbar {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+  }
