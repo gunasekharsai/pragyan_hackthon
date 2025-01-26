@@ -36,7 +36,7 @@ const AddressForm: React.FC<AddressFormProps> = ({ address, onSubmit, setAddress
 
   return (
     <form
-      className="form bg-[black] px-[4vw] gap-[2vh] justify-center items- flex flex-col w-[30vw]"
+      className="form bg-[black] px-[4vw] gap-[2vh] justify-center items-left flex flex-col w-[30vw]"
       onSubmit={onSubmit}
     >
       <p className="text-[#a51111] text-center text-3xl">Search for Place..!</p>
@@ -74,7 +74,7 @@ const AddressForm: React.FC<AddressFormProps> = ({ address, onSubmit, setAddress
         onChange={(event) => handleManualInputChange(event, "region")}
       />
 
-      <label htmlFor="postcode" className="text-[#908787]">
+      {/* <label htmlFor="postcode" className="text-[#908787]">
         Postcode
       </label>
       <input
@@ -84,9 +84,9 @@ const AddressForm: React.FC<AddressFormProps> = ({ address, onSubmit, setAddress
         placeholder="Postcode"
         value={address.postcode}
         onChange={(event) => handleManualInputChange(event, "postcode")}
-      />
+      /> */}
 
-      <label htmlFor="country" className="text-[#908787]">
+      {/* <label htmlFor="country" className="text-[#908787]">
         Country
       </label>
       <input
@@ -96,6 +96,30 @@ const AddressForm: React.FC<AddressFormProps> = ({ address, onSubmit, setAddress
         placeholder="Country"
         value={address.country}
         onChange={(event) => handleManualInputChange(event, "country")}
+      /> */}
+
+      <label htmlFor="latitude" className="text-[#908787]">
+        Latitude
+      </label>
+      <input
+        className="text-xl border-1 rounded-xl px-[1vw] py-[1vh] border-[#8c838377] text-[#fff]"
+        type="text"
+        id="latitude"
+        placeholder="Latitude"
+        value={address.latitude || ""}
+        onChange={(event) => handleManualInputChange(event, "latitude")}
+      />
+
+      <label htmlFor="longitude" className="text-[#908787]">
+        Longitude
+      </label>
+      <input
+        className="text-xl border-1 rounded-xl px-[1vw] py-[1vh] border-[#8c838377] text-[#fff]"
+        type="text"
+        id="longitude"
+        placeholder="Longitude"
+        value={address.longitude || ""}
+        onChange={(event) => handleManualInputChange(event, "longitude")}
       />
 
       <div className="buttons justify-center items-center flex flex-row gap-[2vh]">
