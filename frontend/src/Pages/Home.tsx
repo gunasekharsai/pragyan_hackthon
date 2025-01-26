@@ -15,8 +15,8 @@ const navigate=useNavigate();
   };
   return (
     <motion.div className='bg-[#150c13] flex flex-col  relative overflow-hidden  w-[100vw] h-[100vh] '>
- <Navbar/>
-
+ <div className='relative z-10'><Navbar />
+ </div>
     <motion.div className=' w-[100vw] mt-[15vh] flex flex-col justify-center items-center'>
     <motion.img initial={{ scale: 0 }} animate={{ scale: 1 }} src={Bg} className='absolute w-[35vw] '/>
       <motion.img initial={{ scale: 0 }} animate={{ scale: 1 }} src={Lines} className='absolute w-[105vw] '/>

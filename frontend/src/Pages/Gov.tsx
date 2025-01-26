@@ -13,7 +13,7 @@ interface Coordinate {
 
 const Gov = () => {
   // State to handle the number of corner points and the coordinates
-  const [numCorners, setNumCorners] = useState<number>(0); // Number of corner points
+  const [numCorners, setNumCorners] = useState<number>(3); // Number of corner points
   const [coordinates, setCoordinates] = useState<Coordinate[]>([]); // Stores pairs of latitudes and longitudes
 
   // Update the number of corners and reset coordinates when it changes
@@ -31,23 +31,23 @@ const Gov = () => {
   };
 
   return (
-    <motion.div className="bg-[#150c13] flex flex-col pt-[5vh] justify-center items-center relative overflow-hidden w-[100vw] h-[100vh]">
+    <motion.div className="bg-[#150c13] flex flex-col pt-[0vh] justify-center items-center relative overflow-hidden w-[100vw] h-[100vh]">
       <motion.img initial={{ scale: 0 }} animate={{ scale: 1 }} src={Star} className="absolute top-30 ml-[80vw]" />
       <motion.img initial={{ scale: 0 }} animate={{ scale: 1 }} src={Star} className="absolute rotate-90 w-[100px] top-50 ml-[-80vw]" />
       <motion.img initial={{ scale: 0 }} animate={{ scale: 1 }} src={Star} className="absolute top-130 ml-[-60vw]" />
       <motion.img initial={{ scale: 0 }} animate={{ scale: 1 }} src={Star} className="absolute top-130 z-10 rotate-85 w-[50px] ml-[70vw]" />
       <motion.img initial={{ scale: 0 }} animate={{ scale: 1 }} src={Lines} className="absolute w-[105vw]" />
 
-      <div className="flex flex-col w-[55vw] h-full pt-[20vh] justify-center items-center relative overflow-y-scroll scrollbar">
+      <div className="flex flex-col w-[55vw] h-full pt-[70vh] pb-[10vh] justify-center items-center relative overflow-y-scroll scrollbar">
         <h1 className="text-5xl text-[#a60b0b] text-center">Upload your Land details</h1>
-        <form>
+        <form className='flex flex-col justify-center items-center'>
           {/* Adhaar Number */}
           <div className="mt-[3vh]">
             <label className="text-lg font-medium text-[#ffffffbd]">Adhaar Number:</label>
             <input
               type="text"
               placeholder="Enter Your Adhaar Number Here..."
-              className="mt-1 block w-full bg-[#e9dfdf] h-[50px] rounded-md border-gray-300 shadow-xl px-[8px]"
+              className="mt-1 block w-[50vw] bg-[#e9dfdf] h-[50px] rounded-md border-gray-300 shadow-xl px-[8px]"
             />
           </div>
 
@@ -59,7 +59,7 @@ const Gov = () => {
               id="phone"
               name="phone"
               placeholder="Enter Your Phone Number Here..."
-              className="mt-1 block w-full bg-[#e9dfdf] h-[50px] rounded-md border-gray-300 shadow-xl px-[8px]"
+              className="mt-1 block w-[50vw] bg-[#e9dfdf] h-[50px] rounded-md border-gray-300 shadow-xl px-[8px]"
               required
             />
           </div>
@@ -71,7 +71,7 @@ const Gov = () => {
               type="file"
               id="upload"
               name="upload"
-              className="mt-1 block w-full bg-[#e9dfdf] h-[50px] rounded-md text-center border-gray-300 shadow-xl px-[8px] text-[#000000]"
+              className="mt-1 block w-[50vw] bg-[#e9dfdf] h-[50px] rounded-md border-gray-300 shadow-xl px-[8px]"
               required
             />
           </div>
@@ -95,7 +95,7 @@ const Gov = () => {
 
           {/* Dynamic Latitude and Longitude Inputs */}
           {Array.from({ length: numCorners }).map((_, index) => (
-            <div key={index} className="mt-4 flex flex-row gap-[20px]">
+            <div key={index} className="mt-4 flex flex-row  justify-center items-center gap-[20px]">
               {/* Latitude Input */}
               <div className="mt-[3vh]">
                 <label htmlFor={`latitude-${index}`} className="block text-lg font-medium text-[#ffffffbd]">
@@ -108,7 +108,7 @@ const Gov = () => {
                   value={coordinates[index]?.latitude || ""}
                   placeholder="Enter Latitude"
                   onChange={(e) => handleCoordinateChange(index, "latitude", e.target.value)}
-                  className="mt-1 block w-[24vw] bg-[#e9dfdf] h-[50px] rounded-md border-gray-300 shadow-xl px-[8px]"
+                  className="mt-1 block w-[15vw] bg-[#e9dfdf] h-[45px] rounded-md border-gray-300 shadow-xl px-[8px]"
                   required
                 />
               </div>
@@ -125,7 +125,7 @@ const Gov = () => {
                   value={coordinates[index]?.longitude || ""}
                   placeholder="Enter Longitude"
                   onChange={(e) => handleCoordinateChange(index, "longitude", e.target.value)}
-                  className="mt-1 block w-[24vw] bg-[#e9dfdf] h-[50px] rounded-md border-gray-300 shadow-xl px-[8px]"
+                  className="mt-1 block w-[15vw] bg-[#e9dfdf] h-[45px] rounded-md border-gray-300 shadow-xl px-[8px]"
                   required
                 />
               </div>
